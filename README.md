@@ -1,19 +1,43 @@
-# operations_memory_state_manager
+#### operations_memory_state_manager
+
+https://github.com/lineality/operations_memory_state_manager
+
 
 (very (very) rough notes: e.g. terminology used in some sections is A. 'deprecated' or B. that status is still unclear) 2026 09 22
 
-Proto-Type
+~"Physical Programming"
+"Physical computation": based on physical primitives: bits, clock cycles, ?memory cursors?, model-features, bit-languages,
+with sufficient equivalence to reified abstractions including types, "symbols", lifetimes, etc.
+
+
+# Proto-Type
 "No one-pattern is all-patterns."
 
 Working Title "Proto-Type"
 'A programming language with no features.'
 
+---
+https://www.stroustrup.com/JSF-AV-rules.pdf
 
+---
+gpu and parallel oriented...
+---
 
 - Not-a-Compiler
 - Not-a-language
 
 - terms?
+
+---
+
+This is a very work-in-progress exploration that is happening as part of two maybe related directions:
+1. Looking into how Granmo Automata Machines ("TM") relate to languages and computation.
+
+2. Looking at the history of computer languages and the history of memory-safety, static-analysis, and safe-language/behavioral-subsets. 
+
+1. Brian Keirnegan & J.P.Plauger 1974
+2. K&R C
+
 
 ---
 
@@ -29,6 +53,27 @@ But with this 'proto-type' (for lack of a better working-title), we should likel
 (though it may make this (proto-type) difficult to describe...
 a language-compiler-not-language-not-compiler
  
+
+---
+"Types":
+Do Types exist?
+What are they?
+Where are they useful?
+Where are they necessary?
+Where are they a kludge?
+Where are they a convention?
+Where are they a reification-cult?
+
+What are 'types'?
+
+Where are types useful vs. purely-needed for 
+- memory/behavior safety
+- security
+- other 
+- something else?
+- e.g. Are there ways and places where something somewhere (e.g. a function/procedure/subroutine/process) that needs to do something or receive something or transform something or perform something, must have a 'type' in order to perform that?
+
+(Part of the sub-text of this question-set is not rashly throwing out the baby with the bathwater and unduely attacking 'types' in an ironic arbitrary 'anti-type' reification-illusion. )
 
 
 
@@ -215,11 +260,10 @@ semble...
 "Comsembler"
 Proto... "Proto" (collides with .proto)
 primal... Shannon... Mathison... Stony... Applejack... ("Smells like almonds") 
-Awa...
-Pockets...
 memory-state-assembly-management...
 Globe-Theater
-Sand
+Quartz
+Mecha
 
 
 Language-Memory-State-Manager vs. 'compiler' 
@@ -235,7 +279,24 @@ memory-state-time-map
 
 ---
 
-This is not meant to be a one-size-fits-all language.
+note: 2026/09
+https://odin-lang.org/news/newsletter-2026-09/ 
+"Odin has gained an experimental inline asm template system, supporting amd64, arm64, and riscv64."
+
+
+Maybe thinking about adding memory-analysis and debugging into odin with inline asm is a simpler starting place?
+
+(though that might get into compiler questions as... what exactly llvm or whatever compiler does may be both important and obscure)
+
+---
+
+https://lowendmac.com/2006/visicalc-and-the-rise-of-the-apple-ii/ 
+"""
+Development of the shipping product began in earnest in mid-1978. A special version of the assembly programming language was selected. Developed by John Doty from ECD, a company producing a custom 6502 microcomputer, the language was different from Apple’s assembly language in that it used macros to call previous parts of the program, instead of GOTOs (avoiding “spaghetti” code).
+"""
+---
+
+This (Proto-Type) is not meant to be a one-size-fits-all language.
 
 This is meant to address one more area of, likely lower-level and or systems-programming oriented, software development that are especially precarious in 2026. 
 
@@ -877,6 +938,13 @@ packages vs. modules?
 ---
 "Data Structures"
 
+---
+Ryan Fleury on 
+https://www.youtube.com/watch?v=rcJwvx2CTZY
+
+More stack vs. heap allocation... nuances...
+
+
 
 ---
 
@@ -1140,21 +1208,552 @@ DAG
 
 or specifically not those directions?
 
+---
+
+trying to understand what people liked about K&R c,
+and how the pre-processor works to make c more flexible,
+how c differs from algol 58 60 68,
+
+
+Baby & Bathwater question:
+- in Hollzman's restriction on pre-compiler use (and no recursion, etc.) How much functionality was A. truncated or B. quasi-truncated by making it more difficult C. effectively truncated by making functionality not performant?
+
+---
+
+What specific 'conventional uses & hygiene functionalities' should this language-compiler (or languageless-compiler, or compilerless-language) have:
+
+1. I/O
+
+2. Standard Fields:
+- financial field data
+- datetime field data
+- normalized field data
+- boolean/binary/onehot field data
+
+3. comments and documentation
+
+4. hygiene:
+- case handling
+- error handling
+
+5. atomics?
+6. 
+
+---
+
+Three areas to avoid:
+
+1. abstract the functionality away: "Start-fast and get stuck fast"
+
+2. preclude the functionality: have no features allow for sensibly/correctly doing that
+
+3. under-supported: not precluded, but involving such an elaborate make-shift-workaround that it is overly cumbersome to do (especially when the task is something that is regularly done or should always be done)
+
+
+
+
+---
+
+
+
+What can be learned about 'language designed by committees' not working?
+
+Would it be useful to make (at the risk of nearly being less 'procedural') a list of the functionalities that people most-need, to make sure that those are 
+A. covered
+B. emphasized
+(note: this should also help to specify what use-cases are and are not focused on: this is not a swiss-army-knife project)
+
+---
+
+maybe some kind of 'native data encryption'?
+
+1. error correcting codes?
+2. memory head-tail unique-id?
+3. some kind of A. encryption, B. signing-signature for "who" modified memory (maybe a proxy for 'literal lifetime ownership tracing?' C. maybe-maybe homomorphic-encryption (for some operations to be done)
+
+looking of course at size and computation costs...
+---
+
+maye stardard-ish (not just one standard) sets of memory that is not raw-literal memory (e.g. without any indication of bounds)
+
+packet/struct organized memory?
+
+...UDP packets as a semi-equivilance for memory-set parts and roles?
+
 ...
+
+... may be crazy but... one-time-pad validation for memory-segment-id?
+
+
+
+
+---
+
+Q:
+Rust compile-time borrow-checker vs. fil-c run-time memory-safety:
+- where is compile-time checking enough or not-enough? (where is run-time checking needed?)
+- 
+
+---
+
+Handling time with as much precision as possible may be a key area that was not as 
+
+
+---
+
+Convenience & Abstraction:
+If possible I want to try to take a careful look at the use of a possibility necessary for super-abstraction thinking, as though pure abstractions somehow automatically translates into the functionalities and features that people need.
+
+Rust being not object-oriented, as with Zig, and Odin, and (Go being somewhat successful but arguably being a 'never took off' academic experiment). 
+
+Superficially it might make sense to say that users, such as finance, engineering, STEM, need to deal with data-abstractions. 
+
+
+An important and possibly counterinitive and maybe important example (or set of examples) is the spreadsheet.
+
+Both VisiCalc version 1, and Lotus-1-2-3 version 1, were written in assembly language (if I remember correctly), and when they then tried to harness the superpower of abstractions to support human-level features both projects imploded into exponential tech-debt.
+
+Also:
+As high level micro-soft style spreadsheets have in some ways become entrenched (arguably selectively in dysfunctional parts of workforces), Data-Science (dataframes, R, Py, "tensors", etc.) only flourished when people separated from high level spreadsheets.
+
+The spreadsheet+SQL paradigm has been, arguably, one of the most important headache, blocker, impediments in the history of industry, academic, and computer-science, because of that standard pattern for high level 'low-code, no-code' solutions: quick-start and quick-end-of-road. 
+
+A possible counter-example or nuance here is python, which for a language is very-very high level (but is more like coding compared with a spreadsheet). But even here, the success of python-data-science (which I think was world-changing from 2012-2024), exposed a 'next-step' issue: Production-Data-Science (which is perhaps only a concept or issue because python-datascience is not production-capable). (If Rust-tools and libraries somehow took the place of python for data-science (which may not make sense to imagine) then there would be no inherent gap).
+
+
+---
+
+Perhaps a notable irony, while arguably a main point of c-type-language over assembly, is that people can share and build up an ecosystem of open-source vetted libraries and tools. The persistent absence of this for c to me is a central perplexing paradox.
+
+(Perhaps one part of that puzzle is the obscure section in Plauger's ~1990 book on the C standard library, on gaining legal rights to access and use the standard library as super secret squirrel not-open completely owned by whoever it was at the time (maybe Bell/AT&T?).) 
+
+If a main reason to hide low-level-code in layers of inflexible abstraction is to allow for c to have a thriving ecosystem of sharable common code... that argument is looking absurd in 2026.
+
+
+---
+
+overall vision brainstorm:
+
+some kind of combination of
+- Rust (with naked assembly)(with memory management)
+- Some kind of "Debugger" (perhaps notable is
+https://github.com/EpicGames/raddebugger Ryan Fleury ryanfleury
+I have not delved into that yet)
+- Fil-c (with compiler-oriented c-compatible memory-safety features (though the performance-hit may or may not make various methods impractical)
+- K&R c (loved by people, practical for many things)
+- Odin (with a cleaner implementation of c concepts)
+e.g. Having an IDE/editor 'higher level' way of 
+- organizing code
+- mode-managing code (test, debug, production-release)
+- debugging code
+- "compiling" code
+- packaging and modularizing code
+- (maybe, ideally, integrating c/zig/odin-compatible projects)
+- memory-managing code (rust, fil-c, (maybe zig))
+
+And/But:
+
+The body of the 'functions'/'procedures' can be / would be assembly-language (without then losing the memory-features as with Rust's 'unsafe-block')
+
+
+Note: might it be possible to keep os/cpu type detection and flags for managing which blocks of assembly will be compiled for a given architecture.
+
+
+---
+
+Questions:
+- unrolling/unwinding loops
+
+(tools/support for this?)
+
+
+@~11-min Casey Moratory  
+https://www.youtube.com/watch?v=jHLbL1Eg4gM 
+
+Marc Loy -smaller C (book)
+- Marc Loy refers to milliseconds... in Grace Hopper terms, that is HUGE! (She was focused on saving nano-seconds and wasting milliseconds was beyond unthinkable (e.g. the joke-prizeo of wearing a millisecond-coil for wasting one.)
+
+Branchless-Branches
+and
+unwound/unrolled loops
+
+
+---
+
+Note:
+- Should be able to compile for an architecture without running on that architecture.
+
+
+---
+'Memory-safety without the illusion of types'
+Trying to untangle the problem of 'type-safety' and 'memory-safety' where 'types' themselves are a confused illusion. 
+
+---
+
+
+Is 'proto-type' a custom-compiler-maker, (yacc?)
+where a "program"(?) or source-code, is a custom-compiler for a specific compiled binary for specific hardware (maybe with option-flags, etc.)
+
+The idea (however inept) is that there should be enough 'standard parts' and 'standard tricks' that a team (with whatever help and tools) can make 'bottom-up' 'hardware and data operations context' design-based program/binary with a combination of primitives and concepts based on:
+
+- known performance optimization principles/patterns
+- memory management guidelines
+- sub-routine cookbook patterns 
+
+---
+
+Maybe/probably having a way to 'opt-out' if the 
+...
+or not?
+
+
+---
+
+Trying to find a natural balance... if there is one
+
+having a way to use/import (maybe in the sense of a package and standard library) a 'normal' 'type'
+
+something like that should (maybe like Odin) be facilitated for
+the most common 'types'
+
+This does not (inherently, necessarily) mean either:
+1. hiding behind abstractions
+2. using a package-manager (though I'm not necessarily as anti-package-manage as 'ginger'bill-hall
+
+
+What are standard/common 'types'
+
+I am (still) guessing that 'type' handling for manual memory-use and for ~static-analysis / (maybe) runtime-memory-protections 
+is going to be odd:
+
+---
+
+Topic to look into:
+
+In ['Ginger'] Bill Hall's description of it being difficult to explain Odin's "Build System" to people, there is a tangled linguistic, educational, and psychological situation. 
+
+compare: 
+- c's 'build system'
+newer-cleaner languages:
+- for other language such as rust, go
+- odin
+- zig
+middle period languages:
+- cpp
+- c#
+- objective-c
+- swift
+
+
+---
+
+(maybe similar to primives section)
+- values
+(maybe no types or lifetimes)
+- operations
+
+definitions of illegality?
+(negative definition of not-not-illegal?)
+
+---
+
+This may or may not be useful or significant, but I am reminded of the way that I think Casey Muratori describes a 'game' as not being like a stateless program with one input and one output, but rather as a stateful real-time "model" (simulator, emulator) where state is continually updated (ideally with as much concurrency/parallelism as possible)
+
+---
+
+C. Muratori, M. Acton, and 'physical-state machine engineering'
+
+vs.
+symbolic-algebraic programming (the school that gave us Rust, Haskell, and OOP)
+...
+(and the prepositional logic in the presumed design of Granmo-Machines? ...is there a physical-state machine engineering way to approach the feature-compilation space for Granmo_automata-machines?)
+
+
+---
+What is the presuming in terms of the 'development environment' from the user point of view: values and operations, or just operations? Lifetimes of values, or not needed?
+Is it wrong to think that this presumes some kind of either 'memory-pipes' without the need for abstracted types or values or abstract lifetimes...
+I am not sure if your suggestions either inform what the 'primatives' of the proto-type system should be, of if they are assuming something (which is not to say wrongly).
+This may or may not be useful or significant, but I am reminded of the way that I think Casey Muratori describes a 'game' as not being like a stateless program with one input and one output, but rather as a stateful real-time "model" (simulator, emulator) where state is continually updated (ideally with as much concurrency/parallelism as possible)
+
+---
+
+~Defining procedural-modeling in an auditable physical-computation-space
+
+Physical computation: based on physical primitives: bits, clock cycles, ?memory cursors?, model-features, bit-languages,
+with sufficient equivalence to reified abstractions including types, "symbols", lifetimes, etc.
+
+---
+
+state externalization
+
+state, if without memory-types, is... perhaps a key area for defining the primitives of a physical-computational-model
+/physical-model-computation
+/physical-model-machine?
+(assuming this is a stateful model)
+
+project-object-state...
+
+time-schedule-state...
+
+
+---
+
+approaches to testing...
+
+tiger-beatle, turso
+
+note:
+known UI-testing issues...
+
+workflow-testing...
+
+---
+
+Stateless Functionality:
+- not maintain internal state 
+- not modify shared memory
+
+Memory, State, Parallel/Concurrency, and Lambda-Functions
+
+
+---
+
+State and Statelessness
+
+
+
+
+---
+
+Note:
+For applications involving cellular/DNA integrated biological computation,
+could this help to more clearly defined pathways for adding modeling-computation functionality to biological cells?
+
+
+---
+
+# Fil-c and performance:
+
+The loss of performance on fil-c seems to be generally in a range of x0.06 to x6 times slower. In a context of how much faster a c version can be compared with a non-performance-oriented language, that comparison seems to be x10 x100 x200 faster, which are numbers that generally seem larger than the worst (not-yet-optimized) fil-c performance. 
+
+
+---
+
+State in Databases & Schedule-Memory: Generalizing Stateful Process
+2026 01 04th
+
+Beyond the conventions and customs of language, fads of populist storms, and diverse methodologies of different disciplines, we may be incrementing closer to being able to describe and tool-box a more general set of concepts, principles, processes, and mechanisms.
+
+Civil Law
+Criminal Law
+Natural-Law
+Repeatable-Testable-Code
+Stateful Project Spaces and Project-Object Databases
+System & Definition Collapse
+
+'State' in statistics, thermometers, and administrations
+
+Very diverse uses and meanings of [English]terms such as 'model' 'state' 'value' make it difficult to determine how close or how far concepts and disciplines are.  
+
+
+---
+Computational math:
+
+- support for 'e'
+
+
+---
+
+~Functional Branchless Conditionals (equalities and inequalities)
+
+
+
+
+- Does it make sense for there to be a split between R&D vs. production for STEM?
+
+Shouldn't a scientific-paper require the highest possible level of repeatability and auditability?
+
+---
+
+equalities, inequalities, 
+
+for effective conditional statement, "conditional", conditional branch,  selection statement:
+
+(or 'branchless')
+
+allowing there to be ... a more derived ~expression with operators and operands on both sides of the inequality/equality, 
+
+e.g. 
+optimized branchless absolute value inequality conditionals
+
+
+Chained inequalities
+
+
+Note: not necessarily trying to reify and abstract this, but having some solid way of deeply supporting this overtly,
+maybe there are many context-specific cases that vary 
+
+
+---
+
+timing-safety
+
+---
+
+See various static analysis tools:
+https://github.com/csvitlik/static_analysis_tools 
+
+(
+How could these inform design?
+are there some classes of error that could be pre-cluded?
+)
+
+
+---
+# GC & Fil-C
+Note: unless this is working in some unusual way, garbage-collection (GC) within c/zig could be extremely horrible: e.g. Martin Kleppmann going into extensive detail explaining how garbage-collection is incompatible with data-bases being able to function correctly, which is a very serious topic, not a marginal edge case, externality, something that can be ignored, something that most people never deal with, etc. 
+https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable-ebook/dp/B0GNTX59CY?ref_=ast_author_mpb 
+Databases are just one example, many other systems also suffer constant catastrophic interruptions that need to not suffer those (maybe including JS/TS interpretors). 
+
+
+https://fil-c.org/how 
+```
+InvisiCaps could work with a variety of memory management schemes, including sufficiently segregated malloc/free. However, they can produce the best guarantees with a GC. GC allows the free() operation to deterministically and atomically disable all pointers to the memory that was freed, so use after free, invalid free, and double free are all guaranteed to panic. For this reason, Fil-C uses a concurrent garbage collector.
+```
+---
+
+High performance and 'mission-critical' compute:
+- mainframes
+- super-computers
+- gpu-parallelization
+- distributed-compute
+
+- hardware
+- OS
+- language (c, c++)
+- Software
+
+
+https://www.ibm.com/new/announcements/announcing-forty-years-of-aix-the-autonomous-foundation-for-the-ai-critical-era
+
+
+the possible paradox of c++ used for performance... yet 'data oriented' performance not being a priority for c++ design...
+
+
+---
 
 
 # See:
+- 2018, Granmo - Original 2018 paper by Ole-Christoffer Granmo  https://arxiv.org/abs/1804.01508 
+
+- 2021, Rust in Action, McNamara https://www.manning.com/books/rust-in-action 
+
 - Marc Loy's 'Smaller C'
+https://www.amazon.com/Smaller-Lean-Code-Small-Machines-ebook/dp/B0962CP6ZH/
+
+- "TinyML: Machine Learning with TensorFlow Lite on Arduino and Ultra-Low-Power Microcontrollers" by Pete Warden, Daniel Situnayake
+https://www.amazon.com/TinyML-Learning-TensorFlow-Ultra-Low-Power-Microcontrollers/dp/1492052043/ 
+
 - 1978 'K&R C' TCPL
+https://www.amazon.com/Programming-Language-Brian-Kernighan-1978-02-22/dp/B01MQZYKSN/ 
+
 - 1990 Plauger "The C Standard Library"
+https://www.amazon.com/Standard-C-Library-P-J-Plauger/dp/0131315099/
+
 - 1991 Plauger "Programming on Purpose"
+https://www.amazon.com/Programming-Purpose-Essays-Software-Design/dp/0137213743/
+
 - 1991 J.E.Tomayko SEI
-- 2018, Granmo
-- 2021, Rust in Action, McNamara
+https://www.amazon.com/Software-Engineering-Education-Pennsylvania-Proceedings/dp/3540545026/ 
+
 - 2026: Zilyinski (The Odin Programming Language)
+https://www.amazon.com/Understanding-Odin-Programming-Language-Zylinski-ebook/dp/B0DQ1V7LW4/ 
 
 - https://godbolt.org/
-- https://en.wikipedia.org/wiki/Compiler 
+CppCon 2018: Matt Godbolt “The Bits Between the Bits: How We Get to main()” CppCon
+https://www.youtube.com/watch?v=dOfucXtyEsU 
+
 - https://github.com/nicbarker - assembly structure-editor
 
+- https://en.wikipedia.org/wiki/Hilbert%27s_problems  
+ 
+- https://en.wikipedia.org/wiki/ALGOL 
 
+
+- https://www.youtube.com/@WookashPodcast ()
+
+- https://www.youtube.com/watch?v=t7MTb_zinTc Dmitriy Kovalenko odiff OCaml (image-diff, zig)
+ffmpeg...
+
+
+Mike Acton's Data-Oriented Design in C++ — Deep Dive (Part 4 of 4)
+Goju Tech Talk
+https://www.youtube.com/watch?v=HI5U4R5wahs 
+
+
+https://blog.janestreet.com/introducing-oxcaml/ 
+
+- https://en.wikipedia.org/wiki/Compiler 
+
+- Original 2018 paper by Ole-Christoffer Granmo  https://arxiv.org/abs/1804.01508
+
+'Casey Muratori: The Anatomy of a 35-Year Mistake, "Clean Code" Horrible Performance'
+Ryan Peterman
+ and Molly Rocket
+https://www.youtube.com/watch?v=jHLbL1Eg4gM
+
+https://www.computerenhance.com/ 
+
+https://www.amazon.com/Computability-Complexity-Languages-Second-Fundamentals/dp/B010WFBN2Q/ 
+"Computability, Complexity, and Languages: Fundamentals of Theoretical Computer Science (Computer Science and Scientific Computing) 2nd edition" by Martin Davis, Ron Sigal, Elaine J.Weyuker (1994)
+
+
+...
+6502
+
+https://6502.org/users/obelisk/6502/instructions.html
+
+https://www.nesdev.org/wiki/6502_instructions 
+
+...
+
+Ryan Fleury:
+
+(Not GC... (not non-Pizlo gc?) )
+Arenas in Memory
+Everyone is doing memory management wrong. feat. Ryan Fleury | S2 E02, Backend Banter
+https://www.youtube.com/watch?v=UeJPyuVxL-o 
+- Arenas = The Stack
+- stack organizes lifetimes...
+- caller vs. parser
+- backing-store
+
+History:
+
+
+Arena Allocators
+Linear Allocators
+Bump allocators
+Region Allocators
+
+
+
+- arena is a ...stack-mananger layer?
+- a higher-level stack... that can be N-size?
+- fn/proc arena() {}
+
+'threads' & blocking i/o
+
+
+data-races:
+- 
+
+cache-bug in network
+same in hardware... 
+
+atomic-instructions
+write-block on L2 cache
+
+contension & race
+
+(virtual parallel stack?)
